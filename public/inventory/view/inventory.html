@@ -1,0 +1,24 @@
+<md-card flex layout="column" style="height:100%;max-height:300px;">
+      <md-toolbar>
+        <div class="md-toolbar-tools">Inventory</div>
+      </md-toolbar>
+      <md-content flex layout="column">
+        <md-list flex>
+        <md-list-item class="md-3-line" ng-repeat="item in inventoryCtrl.inventory">
+            <md-card-title>
+            <md-card-title-media layout-margin>
+              <div class="md-media-sm card-media"><img src="{{item.inven_image}}" /></div>
+            </md-card-title-media>
+              <md-card-title-text>
+                <span class="md-headline">{{item.inven_name}}</span>
+                <span class="md-subhead">{{item.inven_quantity}} <bold>pcs<bold></span>
+              </md-card-title-text>
+
+            </md-card-title>
+            <md-button class="md-secondary" ng-click="inventoryCtrl.startAuction(item,$event)">Auction</md-button>
+            <md-divider ng-if="!$last"></md-divider>
+      </md-list-item>
+
+        </md-list>
+      </md-content>
+    </md-card>

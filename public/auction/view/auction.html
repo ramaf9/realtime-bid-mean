@@ -1,0 +1,58 @@
+<md-card flex ng-show="!auctionCtrl.auction.id">
+  <md-card-title>
+
+    <md-card-title-text>
+      <span class="md-headline">Sorry there are no auction available right now</span>
+    </md-card-title-text>
+    <md-card-title-media>
+      <div class="md-media-sm card-media"><img src="/assets/logout.png" /></div>
+    </md-card-title-media>
+    <md-card-content>
+
+    </md-card-content>
+  </md-card-title>
+
+</md-card>
+
+
+      <md-card flex ng-show="auctionCtrl.auction.id">
+        <md-card-header>
+          <md-card-avatar>
+            <img class="md-user-avatar" src="img/100-2.jpeg"/>
+          </md-card-avatar>
+          <md-card-header-text>
+            <span class="md-title">{{auctionCtrl.auction.inven_owner}}</span>
+            <span class="md-subhead">Owner</span>
+          </md-card-header-text>
+        </md-card-header>
+        <md-card-title>
+            <md-card-title-media layout-margin>
+              <div class="md-media-sm card-media"><img src="{{auctionCtrl.auction.inven_image}}" /></div>
+            </md-card-title-media>
+          <md-card-title-text>
+            <span class="md-headline">{{auctionCtrl.auction.inven_name}}</span>
+            <span class="md-subhead">{{auctionCtrl.auction.auction_quantity}} <bold>pcs</bold></span>
+            <span class="md-headline"><span class="md-subhead">Winning bid : </span>{{auctionCtrl.auction.auction_max_bid}}</span>
+            <span class="md-headline"><span class="md-subhead">Time left : </span>{{auctionCtrl.timeleft}}</span>
+
+
+          </md-card-title-text>
+          <md-card-content>
+
+          </md-card-content>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="start center">
+            <md-input-container flex="45">
+                <input required aria-label="Bid" ng-model="item.bid" only-numbers/>
+                <label>Make bid</label>
+                <div ng-message>Must be lower than current coin <p>Minimal bid : <bold>{{auctionCtrl.auction.auction_min_bid}}</bold></p></div>
+
+            </md-input-container>
+          <md-button class="md-primary md-raised" ng-disabled="(item.bid < auctionCtrl.auction.auction_max_bid || item.bid < auctionCtrl.auction.auction_min_bid) || !item.bid || item.bid > coin" ng-click="auctionCtrl.placeBid(item.bid,uid)">Place bid</md-button>
+          <md-card-icon-actions>
+            <md-button class="md-icon-button" aria-label="toggle">
+              <md-icon md-svg-icon="md-toggle-arrow"></md-icon>
+            </md-button>
+          </md-card-icon-actions>
+        </md-card-actions>
+    </md-card>

@@ -1,0 +1,51 @@
+<html lang="en" >
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/">
+  <title>Auctionarium</title>
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="/assets/css/angular-material.min.css">
+    <style type="text/css">
+            /**
+             * Hide when Angular is not yet loaded and initialized
+             */
+            [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+              display: none !important;
+            }
+            bold{
+                font-weight: bold;
+            }
+    </style>
+</head>
+<body ng-app="BlankApp" ng-cloak>
+    <md-toolbar layout="row" layout-align="center center">
+      <h2>Auctionarium</h2>
+    </md-toolbar>
+
+    <div ui-view>
+
+    </div>
+
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="/assets/js/jquery.min.js"></script>
+  <script src="/assets/js/angular.min.js"></script>
+  <script src="/assets/js/angular-animate.min.js"></script>
+  <script src="/assets/js/angular-aria.min.js"></script>
+  <script src="/assets/js/angular-messages.min.js"></script>
+  <script type="text/javascript" src="/assets/js/angular-ui-router.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="/assets/js/angular-material.min.js"></script>
+
+
+  <!-- Your application  -->
+  <script type="text/javascript" src="app.js"></script>
+  <script type="text/javascript" src="home/home.controller.js"></script>
+  <script type="text/javascript" src="users/users.controller.js"></script>
+  <script type="text/javascript" src="auction/auction.controller.js"></script>
+  <script type="text/javascript" src="inventory/inventory.controller.js"></script>
+
+
+</body>
+</html>

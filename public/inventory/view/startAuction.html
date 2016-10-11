@@ -1,0 +1,70 @@
+
+<md-dialog aria-label="Start auction" flex-xs flex-gt-xs="50" style="max-height:70%;" ng-cloak>
+  <form name="form">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Start auction</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+
+        <md-card flex style="height:100%;max-height:300px;">
+              <md-content flex layout="column">
+                <md-list flex>
+                <div flex layout="column">
+                    <md-card-title flex="50">
+                    <md-card-title-media layout-margin>
+                      <div class="md-media-sm card-media"><img src="{{inven.inven_image}}" /></div>
+                    </md-card-title-media>
+                      <md-card-title-text>
+                        <span class="md-headline">{{inven.inven_name}}</span>
+                        <span class="md-subhead">{{inven.inven_quantity}} <bold>pcs<bold></span>
+                      </md-card-title-text>
+
+                    </md-card-title>
+                    <div layout="row" layout-padding layout-xs="column" layout-sm="column" layout-align="space-between center">
+                        <md-input-container flex="30">
+                            <input required aria-label="Quantity" ng-model="item.quantity" only-numbers/>
+                            <label>Quantity</label>
+                            <div ng-message>Must be lower than available quantitiy</div>
+
+                        </md-input-container>
+
+                    </div>
+                    <div layout="row" layout-padding layout-xs="column" layout-sm="column" layout-align="space-between center">
+                        <md-input-container flex="70">
+                            <input required aria-label="Minimum bid" ng-model="item.minbid" only-numbers/>
+                            <label>Minimum bid</label>
+
+                        </md-input-container>
+
+                    </div>
+
+
+
+              </div>
+
+                </md-card-title-text>
+                </md-list>
+                </md-content>
+            </md-card>
+
+
+
+
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <md-button ng-click="close()">
+        Cancel
+      </md-button>
+      <span flex></span>
+      <md-button class="md-primary" ng-disabled="item.quantity > inven.inven_quantity || !item.minbid || !item.quantity" ng-click="aucting(item)">
+        Start
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

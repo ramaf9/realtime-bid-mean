@@ -1,0 +1,28 @@
+<!-- template for users.html -->
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="30" layout="column">
+      <md-card md-theme-watch>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{uid}}</span>
+            <span class="md-subhead">{{coin}} <bold>pts<bold></span>
+          </md-card-title-text>
+          <md-card-title-media>
+                <md-button class="md-fab md-mini md-primary" ng-click="usersCtrl.logout()" aria-label="Logout">
+              <div><img style="height:100%;" src="{{usersCtrl.logoutPath}}" /></div>
+            </md-button>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button ui-sref=".inventory" class="md-raised md-primary">Inventory</md-button>
+          <md-button ui-sref=".auction" class="md-raised md-primary">Auction</md-button>
+        </md-card-actions>
+      </md-card>
+
+        <!-- <md-button class="md-raised md-primary" ng-click="usersCtrl.debug()">Debug</md-button> -->
+    <div ui-view="inventoryColumn"></div>
+    </div>
+    <div flex-xs flex-gt-xs="70" layout="column">
+    <div ui-view="auctionColumn"></div>
+</div>
+</md-content>
